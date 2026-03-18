@@ -123,3 +123,9 @@ def get_image(filename):
 def files():
     images = get_uploaded_images()
     return render_template('files.html', images=images)
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    flash("Logged out")
+    return redirect(url_for('home'))
